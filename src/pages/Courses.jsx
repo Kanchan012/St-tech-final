@@ -16,7 +16,7 @@ import Business from "../assets/Homeimage/Business.png";
 import Brand from "../assets/Homeimage/Brand.png";
 import Public from "../assets/Homeimage/Public.png";
 import Modeling from "../assets/Homeimage/Modeling.png";
-
+import { NavLink } from "react-router-dom";
 function Courses() {
   return (
     <>
@@ -57,9 +57,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                 <NavLink to="/nancycourse">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 2 */}
@@ -82,9 +84,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/nancygraphic">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 3 */}
@@ -107,9 +111,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+               <NavLink to="/henrydata">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 4 */}
@@ -122,7 +128,7 @@ function Courses() {
                   <span className="text-xs text-gray-400">REVIEWS</span>
                 </div>
                 <h3 className="font-semibold mt-4">
-                  Mern Stack | 3 Months
+                  Mern Stack Development |  <br /> 3 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Henry} alt="" className="rounded-full object-cover     w-8 h-8" />By Henry Smith</p>
                 <div className="flex items-center justify-between mb-4">
@@ -132,9 +138,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/henrymern">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 5 */}
@@ -157,9 +165,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/charweb">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 6 */}
@@ -182,9 +192,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/jordanproject">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 7 */}
@@ -208,9 +220,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/nancydigital">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 8 */}
@@ -233,9 +247,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/ethanbusiness">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 9 */}
@@ -257,9 +273,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/charbrand">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 10 */}
@@ -281,9 +299,11 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/jordanpublic">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
+                 </NavLink>
               </div>
           
               {/* Card 11 */}
@@ -306,43 +326,13 @@ function Courses() {
                 <FaHeart className="text-red-500 size-5 mt-2"/>
                 </div>
                 <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
+                <NavLink to="/ethan3d">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 ml-7 py-1  rounded">      
+                       View Course
                 </button>
-              </div>
-
-              {/* Card 12 */}
-              <div className="bg-white rounded-xl w-[250px] shadow p-4">
-                <img src={Uiux} className="w-full h-[140px] object-contain" />
-                <div className="flex justify-between mt-2">
-                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-                    Rs. 10,000
-                  </span>
-                  <span className="text-xs text-gray-400">REVIEWS</span>
-                </div>
-                <h3 className="font-semibold mt-4">UI/UX Design | 2.5 Months</h3>
-                <p className="text-sm text-gray-500 flex mt-2 items-center gap-2"><img src={Nancy} alt="" className="rounded-full object-cover w-8 h-8" />By Nancy White</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
-                <hr />
-                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-                  View Course
-                </button>
-              </div>
-          
-          
-          
-          
+                 </NavLink>
+              </div>          
             </div>
-
-
-
-
-
         </div>
         </div>
         </>

@@ -98,8 +98,8 @@ function Henryinstructor() {
 
         <div className="flex ml-[420px] gap-15 p-4">
           {[ 
-            { img:Datascience, title: "Data Science | 3 Months", instructor: "Henry ", pic: Henry },
-            { img: Mern, title: "Mern | 3 Months", instructor: "Henry ", pic: Henry },
+            { img:Datascience, title: "Data Science | 3 Months", instructor: "Henry ", pic: Henry , link: "/henrydata"},
+            { img: Mern, title: "Mern | 3 Months", instructor: "Henry ", pic: Henry , link: "/henrymern" },
           ].map((course, i) => (
             <div
               key={i}
@@ -129,15 +129,18 @@ function Henryinstructor() {
                 </div>
 
                 <div className="flex justify-between items-center">
+                  
                   <button className="bg-yellow-300 px-4 py-1 rounded-md font-semibold">
                     Add to cart
                   </button>
                   <FaHeart />
                 </div>
-
+                
+              <NavLink to={course.link}>
                 <button className="w-full border mt-2 py-1 rounded-md font-semibold">
                   View Course
                 </button>
+                </NavLink>
               </div>
             </div>
           ))}

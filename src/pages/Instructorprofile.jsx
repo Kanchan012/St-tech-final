@@ -13,7 +13,6 @@ import Jameswhite from "../assets/Homeimage/Jameswhite.png";
 import Nancysmith from "../assets/Homeimage/Nancysmith.png";
 import Stars from "../assets/Homeimage/Stars.png";
 
-
 function Instructorprofile() {
   return (
     <>
@@ -98,16 +97,38 @@ function Instructorprofile() {
         <br />
 
         <div className="flex gap-15 ml-60 p-4">
-          {[ 
-            { img: Uiux, title: "UI/UX Design | 2.5 Months", instructor: "Nancy White", pic: Nancy },
-            { img: Graphics, title: "Graphic Design | 3 Months", instructor: "Nancy White", pic: Nancy },
-            { img: Digital, title: "Digital Marketing | 3 Months", instructor: "Nancy White", pic: Nancy }
+          {[
+            {
+              img: Uiux,
+              title: "UI/UX Design | 2.5 Months",
+              instructor: "Nancy White",
+              pic: Nancy,
+              link: "/nancycourse"
+            },
+            {
+              img: Graphics,
+              title: "Graphic Design | 3 Months",
+              instructor: "Nancy White",
+              pic: Nancy,
+              link: "/nancygraphic"
+            },
+            {
+              img: Digital,
+              title: "Digital Marketing | 3 Months",
+              instructor: "Nancy White",
+              pic: Nancy,
+              link: "/nancydigital"
+            }
           ].map((course, i) => (
             <div
               key={i}
               className="w-[250px] bg-white border rounded-xl shadow-md"
             >
-              <img src={course.img} alt="" className="w-full h-[140px] object-cover" />
+              <img
+                src={course.img}
+                alt=""
+                className="w-full h-[140px] object-cover"
+              />
 
               <div className="p-3">
                 <div className="flex justify-between items-center">
@@ -137,14 +158,19 @@ function Instructorprofile() {
                   <FaHeart />
                 </div>
 
-                <button className="w-full border mt-2 py-1 rounded-md font-semibold">
-                  View Course
-                </button>
+                {/* ONLY CHANGE: NavLink wrapped */}
+                <NavLink to={course.link}>
+                  <button className="w-full border mt-2 py-1 rounded-md font-semibold">
+                    View Course
+                  </button>
+                </NavLink>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+
 
       {/* CONTACT */}
       <div className="bg-[#01295C] text-white text-center p-10 leading-relaxed">

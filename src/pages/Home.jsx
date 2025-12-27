@@ -36,6 +36,7 @@ import Jamessmith from "../assets/Homeimage/Jamessmith.png";
 import Jameswhite from "../assets/Homeimage/Jameswhite.png";
 import Nancysmith from "../assets/Homeimage/Nancysmith.png";
 import Stars from "../assets/Homeimage/Stars.png";
+import { NavLink } from "react-router-dom";
 
 function Home() {
   return (
@@ -132,276 +133,298 @@ function Home() {
 
   <div className="grid grid-cols-4 gap-8 max-w-[1200px] mx-auto mt-10">
     {/* Card 1 */}
-    <div className="bg-white rounded-xl w-[250px] shadow p-4">
-      <img src={Uiux} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">UI/UX Design | 2.5 Months</h3>
-      <p className="text-sm text-gray-500 flex mt-2 items-center gap-2"><img src={Nancy} alt="" className="rounded-full object-cover w-8 h-8" />By Nancy White</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 2 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Graphics} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-        Graphic Design | 2.5 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Nancy} alt="" className="rounded-full object-cover     w-8 h-8" />By Nancy White</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 3 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Datascience} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-        Data Science| 3 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Henry} alt="" className="rounded-full object-cover     w-8 h-8" />By Henry Smith</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 4 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Mern} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-        Mern Stack | 3 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Henry} alt="" className="rounded-full object-cover     w-8 h-8" />By Henry Smith</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 5 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Web} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-        Web Development| 2.5 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Charlotte} alt="" className="rounded-full object-cover     w-8 h-8" />By Charlotte</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 6 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Project} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-       Project Management| 2.5 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Jordan} alt="" className="rounded-full object-cover     w-8 h-8" />By Jordan</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 7 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Digital} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-        Digital Marketing  | <br />
-         3 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Nancy} alt="" className="rounded-full object-cover     w-8 h-8" />By Nancy White</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 8 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Business} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-        Business Analytics |<br /> 3 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Ethan} alt="" className="rounded-full object-cover     w-8 h-8" />By Ethan </p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 9 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Brand} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-        Brand Management | 1.5 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Charlotte} alt="" className="rounded-full object-cover     w-8 h-8" />By Charlotte</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 justify-center mt-3 py-1 px-2 gap-2 rounded-xl flex text-[#003372]">
-        Free</button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 10 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Public} className="w-full  h-[140px] object-cover" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-       Public Speaking & Presentation Skills | 1 Month
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Jordan} alt="" className="rounded-full object-cover w-8 h-8" />By Jordan</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 justify-center mt-3 py-1 px-2 gap-2 rounded-xl flex text-[#003372]">
-        Free</button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
-
-    {/* Card 11 */}
-    <div className="bg-white w-[250px] rounded-xl shadow p-4">
-      <img src={Modeling} className="w-full h-[140px] object-contain" />
-      <div className="flex justify-between mt-2">
-        <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
-          Rs. 10,000
-        </span>
-        <span className="text-xs text-gray-400">REVIEWS</span>
-      </div>
-      <h3 className="font-semibold mt-4">
-        3D Modeling and Animation | 3 Months
-      </h3>
-      <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Ethan} alt="" className="rounded-full object-cover     w-8 h-8" />By Ethan</p>
-      <div className="flex items-center justify-between mb-4">
-      <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-       <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-      </button>
-      <FaHeart className="text-red-500 size-5 mt-2"/>
-      </div>
-      <hr />
-      <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2 py-1 rounded">
-        View Course
-      </button>
-    </div>
+              <div className="bg-white rounded-xl w-[250px] shadow p-4">
+                <img src={Uiux} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">UI/UX Design | <br />  2.5 Months</h3>
+                <p className="text-sm text-gray-500 flex mt-2 items-center gap-2"><img src={Nancy} alt="" className="rounded-full object-cover w-8 h-8" />By Nancy White</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                 <NavLink to="/nancycourse">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 2 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Graphics} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                  Graphic Design |<br /> 2.5 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Nancy} alt="" className="rounded-full object-cover     w-8 h-8" />By Nancy White</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/nancygraphic">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 3 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Datascience} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                  Data Science|<br /> 3 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Henry} alt="" className="rounded-full object-cover     w-8 h-8" />By Henry Smith</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+               <NavLink to="/henrydata">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 4 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Mern} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                  Mern Stack Development |  <br /> 3 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Henry} alt="" className="rounded-full object-cover     w-8 h-8" />By Henry Smith</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/henrymern">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 5 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Web} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                  Web Development| 2.5 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Charlotte} alt="" className="rounded-full object-cover     w-8 h-8" />By Charlotte</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/charweb">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 6 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Project} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                 Project Management| 2.5 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Jordan} alt="" className="rounded-full object-cover     w-8 h-8" />By Jordan</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/jordanproject">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 7 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Digital} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                  Digital Marketing  | <br />
+                   3 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Nancy} alt="" className="rounded-full object-cover     w-8 h-8" />By Nancy White</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/nancydigital">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 8 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Business} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                  Business Analytics |<br /> 3 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Ethan} alt="" className="rounded-full object-cover     w-8 h-8" />By Ethan </p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/ethanbusiness">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 9 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Brand} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                  Brand Management | 1.5 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Charlotte} alt="" className="rounded-full object-cover     w-8 h-8" />By Charlotte</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 justify-center mt-3 py-1 px-2 gap-2 rounded-xl flex text-[#003372]">
+                  Free</button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/charbrand">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 10 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Public} className="w-full  h-[140px] object-cover" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                 Public Speaking & Presentation Skills | 1 Month
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Jordan} alt="" className="rounded-full object-cover w-8 h-8" />By Jordan</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 justify-center mt-3 py-1 px-2 gap-2 rounded-xl flex text-[#003372]">
+                  Free</button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/jordanpublic">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>
+          
+              {/* Card 11 */}
+              <div className="bg-white w-[250px] rounded-xl shadow p-4">
+                <img src={Modeling} className="w-full h-[140px] object-contain" />
+                <div className="flex justify-between mt-2">
+                  <span className="bg-yellow-300 px-2 py-1 text-sm rounded-full">
+                    Rs. 10,000
+                  </span>
+                  <span className="text-xs text-gray-400">REVIEWS</span>
+                </div>
+                <h3 className="font-semibold mt-4">
+                  3D Modeling and Animation | 3 Months
+                </h3>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Ethan} alt="" className="rounded-full object-cover     w-8 h-8" />By Ethan</p>
+                <div className="flex items-center justify-between mb-4">
+                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
+                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
+                </button>
+                <FaHeart className="text-red-500 size-5 mt-2"/>
+                </div>
+                <hr />
+                <NavLink to="/ethan3d">
+                <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
+                       View Course
+                </button>
+                 </NavLink>
+              </div>     
 
 
 

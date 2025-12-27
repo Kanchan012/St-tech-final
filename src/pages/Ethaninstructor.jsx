@@ -96,8 +96,8 @@ function Ethaninstructor() {
 
         <div className="flex ml-[420px] gap-15 p-4">
           {[ 
-            { img:Modeling, title: "3D Modeling and Animation | 3 Months", instructor: "Ethan ", pic: Ethan },
-            { img: Business, title: "Business Analytics | 3 Months", instructor: "Ethan ", pic: Ethan },
+            { img:Modeling, title: "3D Modeling and Animation | 3 Months", instructor: "Ethan ", pic: Ethan,link:"/ethan3d" },
+            { img: Business, title: "Business Analytics  | 3     Months", instructor: "Ethan ", pic: Ethan, link:"/ethanbusiness" },
           ].map((course, i) => (
             <div
               key={i}
@@ -132,10 +132,11 @@ function Ethaninstructor() {
                   </button>
                   <FaHeart />
                 </div>
-
+                 <NavLink to={course.link}>
                 <button className="w-full border mt-2 py-1 rounded-md font-semibold">
                   View Course
                 </button>
+                </NavLink>
               </div>
             </div>
           ))}

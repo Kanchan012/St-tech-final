@@ -97,8 +97,8 @@ function Charlotteinstructor() {
 
         <div className="flex ml-[420px] gap-15 p-4">
           {[ 
-            { img: Web, title: "Web Development | 2.5 Months", instructor: "Charlotte ", pic: Charlotte },
-            { img: Brand, title: "Brand Management | 1.5 Months", instructor: "Charlotte ", pic: Charlotte },
+            { img: Web, title: "Web Development | 2.5 Months", instructor: "Charlotte ", pic: Charlotte ,link:"/charweb" },
+            { img: Brand, title: "Brand Management | 1.5 Months", instructor: "Charlotte ", pic: Charlotte ,link:"/charbrand" },
           ].map((course, i) => (
             <div
               key={i}
@@ -133,10 +133,11 @@ function Charlotteinstructor() {
                   </button>
                   <FaHeart />
                 </div>
-
+              <NavLink to={course.link}>
                 <button className="w-full border mt-2 py-1 rounded-md font-semibold">
                   View Course
                 </button>
+                </NavLink>
               </div>
             </div>
           ))}
