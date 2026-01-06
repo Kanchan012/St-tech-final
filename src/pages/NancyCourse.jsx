@@ -87,11 +87,7 @@ function NancyCourse() {
             <h1 className="text-center font-medium text-2xl">
               Course Content
             </h1>
-
-            {/* ===== COURSE CONTENT ACCORDION ===== */}
             <div className="bg-white rounded-xl shadow shadow-black">
-
-              {/* INTRODUCTION */}
               <details open className="group border-b ">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-medium text-[#003372]">
                   <span className="flex items-center gap-2">
@@ -121,7 +117,6 @@ function NancyCourse() {
                 </div>
               </details>
 
-              {/* DESIGN TOOLS */}
               <details open className="group border-b">
                 <summary className="flex items-center justify-between px-6 py-4 cursor-pointer font-medium text-[#003372]">
                   <span className="flex items-center gap-2">
@@ -150,7 +145,7 @@ function NancyCourse() {
                 </div>
               </details>
 
-              {/* COLLAPSED SECTIONS */}
+             
               {[
                 "Figma Tools",
                 "Principles of UX Design",
@@ -174,7 +169,7 @@ function NancyCourse() {
           </div>
           
 
-          {/* PRICE CARD */}
+       
           <div className="bg-white shadow-lg relative -mt-25 rounded-xl p-4 h-fit">
             <img src={info} alt="" className="rounded-lg" />
 
@@ -205,7 +200,6 @@ function NancyCourse() {
             </div>
           </div>
 
-          {/* REQUIREMENTS */}
           <div className="bg-white relative left-243 -top-170 rounded-xl shadow-lg  p-4 mt-4 h-fit">
             <h3 className="font-semibold text-lg border-b-2 p-1.5">Requirements</h3>
             <p className="text-gray-600 text-sm p-4 text-justify leading-6">
@@ -223,12 +217,12 @@ function NancyCourse() {
                 </div>
           </div>
         </div>  
-         {/* INSTRUCTOR SECTION  */}
+       
 <div className="-mt-80 px-6">
   <h2 className="text-2xl font-medium text-center mb-6">Instructor</h2>
 
   <div className="flex justify-between items-center gap-6">
-    {/* Instructor Card */}
+   
     <div className="flex items-center gap-4 bg-white shadow rounded-xl p-4 w-full max-w-xl">
       <img
         src={Nancy}

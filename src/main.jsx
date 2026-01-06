@@ -1,25 +1,36 @@
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { BrowserRouter } from 'react-router-dom'
-import { Bounce, ToastContainer } from 'react-toastify'
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Auth0Provider } from "@auth0/auth0-react";
+import { ToastContainer, Bounce } from "react-toastify";
 
-createRoot(document.getElementById('root')).render(
+import App from "./App.jsx";
+import "./index.css";
+import "react-toastify/dist/ReactToastify.css";
+
+createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-  <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick={false}
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-transition={Bounce}
-/>
-    <App />
+    <Auth0Provider
+      domain="dev-pltnp8lblsap5iau.us.auth0.com"
+      clientId="SbF6XYubKuhpQiqioH0CwPyndnNr2kg0"
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+      }}
+    >
+      <App />
+
+      {/* Toast notifications */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Bounce}
+      />
+    </Auth0Provider>
   </BrowserRouter>
-  
-)
+);
