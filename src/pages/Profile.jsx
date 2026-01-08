@@ -1,61 +1,104 @@
-import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
+import { toast } from "react-toastify";
 
-function Profile() {
-  const { user, logout, isAuthenticated, isLoading } = useAuth0();
+const CartWishlistContext = createContext(null);
 
-  if (isLoading) {
-    return (
-      <div className="w-96 m-auto mt-10 font-bold text-2xl">Loading...</div>
-    );
+const initialState = {
+  cart: [],
+  wishlist: [],
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "ADD_TO_CART": {
+      const exists = state.cart.find((i) => i.id === action.payload.id);
+      if (exists) return state;
+      return { ...state, cart: [...state.cart, action.payload] };
+    }
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        cart: state.cart.filter((i) => i.id !== action.payload),
+      };
+    case "ADD_TO_WISHLIST": {
+      const exists = state.wishlist.find((i) => i.id === action.payload.id);
+      if (exists) return state;
+      return { ...state, wishlist: [...state.wishlist, action.payload] };
+    }
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
+        wishlist: state.wishlist.filter((i) => i.id !== action.payload),
+      };
+    case "SET_STATE":
+      return { ...state, ...action.payload };
+    default:
+      return state;
   }
+}
+
+export function CartWishlistProvider({ children }) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // Load from localStorage on mount
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("cart_wishlist_v1");
+      if (raw) dispatch({ type: "SET_STATE", payload: JSON.parse(raw) });
+    } catch (e) {
+      console.error("Failed to load cart/wishlist from localStorage", e);
+    }
+  }, []);
+
+  // Persist to localStorage when state changes
+  useEffect(() => {
+    try {
+      localStorage.setItem("cart_wishlist_v1", JSON.stringify(state));
+    } catch (e) {
+      console.error("Failed to save cart/wishlist to localStorage", e);
+    }
+  }, [state]);
+
+  const addToCart = (item) => {
+    dispatch({ type: "ADD_TO_CART", payload: item });
+    toast.success(`${item.title} added to cart`);
+  };
+
+  const removeFromCart = (id) => {
+    dispatch({ type: "REMOVE_FROM_CART", payload: id });
+    toast.info(`Removed from cart`);
+  };
+
+  const addToWishlist = (item) => {
+    dispatch({ type: "ADD_TO_WISHLIST", payload: item });
+    toast.success(`${item.title} added to wishlist`);
+  };
+
+  const removeFromWishlist = (id) => {
+    dispatch({ type: "REMOVE_FROM_WISHLIST", payload: id });
+    toast.info(`Removed from wishlist`);
+  };
 
   return (
-    <div className="min-h-[80vh] flex justify-center items-start p-10">
-      {isAuthenticated && user ? (
-        <div className="flex gap-10">
-          {/* User Image */}
-          <div className="w-60 h-60 border p-2 rounded-2xl">
-            <img
-              src={user.picture || "https://i.pravatar.cc/150?img=3"} // fallback image
-              alt={user.name}
-              className="w-full h-full object-cover rounded-2xl"
-            />
-          </div>
-
-          {/* User Info */}
-          <div className="flex flex-col justify-start gap-4 font-Noto">
-            <h1 className="capitalize">
-              Name: <span className="text-orange-600 font-bold">{user.name}</span>
-            </h1>
-            <h1>
-              Email: <span className="text-orange-600 font-bold">{user.email}</span>
-            </h1>
-            <h1>
-              Email Verified:{" "}
-              <span className="text-orange-600 font-bold">
-                {user.email_verified ? "Yes" : "No"}
-              </span>
-            </h1>
-
-            {/* Logout Button */}
-            <button
-              onClick={() =>
-                logout({ logoutParams: { returnTo: window.location.origin } })
-              }
-              className="mt-6 bg-orange-600 text-white font-bold px-6 py-2 rounded-lg w-40"
-            >
-              Log Out
-            </button>
-          </div>
-        </div>
-      ) : (
-        <p className="text-center text-xl font-bold">
-          You are not logged in. Please log in to see your profile.
-        </p>
-      )}
-    </div>
+    <CartWishlistContext.Provider
+      value={{
+        cart: state.cart,
+        wishlist: state.wishlist,
+        addToCart,
+        removeFromCart,
+        addToWishlist,
+        removeFromWishlist,
+      }}
+    >
+      {children}
+    </CartWishlistContext.Provider>
   );
 }
 
-export default Profile;
+export function useCartWishlist() {
+  const ctx = useContext(CartWishlistContext);
+  if (!ctx) throw new Error("useCartWishlist must be used within CartWishlistProvider");
+  return ctx;
+}
+
+export default CartWishlistContext;  
