@@ -45,6 +45,9 @@ import Assignments from "./pages/Assignments";
 import Quizzes from "./pages/Quizzes";
 import Tests from "./pages/Tests";
 import Dashresource from "./pages/Dashresource";
+// import PaymentPage from "./pages/PaymentPage";
+// import SuccessPage from "./pages/SuccessPage";
+// import FailurePage from "./pages/FailurePage";
 
 function App() {
   return (
@@ -75,6 +78,10 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<Aboutus />} />
         <Route path="/contact" element={<Contact />} /> 
+         {/* <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/success" element={<SuccessPage />} />
+        <Route path="/failure" element={<FailurePage />} /> */}
+
         <Route
           path="/dashboard"
           element={

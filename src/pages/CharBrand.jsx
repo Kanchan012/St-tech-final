@@ -1,6 +1,7 @@
 import React from "react";
 import bgcourseinfo from "../assets/Homeimage/bgcourseinfo.png";
 import { FaHeart, FaCartShopping } from "react-icons/fa6";
+import { useCartWishlist } from "../context/CartWishlistContext";
 import Brand from "../assets/Homeimage/Brand.png";
 import Charlotte from "../assets/Homeimage/Charlotte.png";
 import Stars from "../assets/Homeimage/Stars.png";
@@ -21,6 +22,8 @@ import { PiStudent } from "react-icons/pi";
 import { FaRegStar } from "react-icons/fa";
 
 function CharBrand() {
+  const { addToCart, addToWishlist, wishlist, removeFromWishlist } = useCartWishlist();
+  const isWish = (id) => wishlist.some((i) => i.id === id);
   return (
     <div className="bg-[#E4E4E4] p-8">
       <div className="max-w-8xl bg-white rounded-4xl overflow-hidden">
@@ -178,13 +181,15 @@ function CharBrand() {
             <div className="flex justify-between items-center">
               <p className="text-[#003372] text-2xl font-bold">Free</p>
               <div className="flex gap-3">
-                <FaHeart className="text-red-500 text-lg" />
+                <button onClick={() => (isWish('charbrand') ? removeFromWishlist('charbrand') : addToWishlist({ id: 'charbrand', title: 'Brand Management', price: 0 }))}>
+                  <FaHeart className={`${isWish('charbrand') ? 'text-red-500' : 'text-gray-400'} text-lg`} />
+                </button>
                 <RiShareForwardLine className="text-gray-500 text-lg" />
               </div>
             </div>
 
             <div className="flex gap-3 mt-4">
-              <button className="flex items-center gap-2 bg-[#003372] text-white px-4 py-2 rounded-xl w-full justify-center">
+              <button onClick={() => addToCart({ id: 'charbrand', title: 'Brand Management', price: 0 })} className="flex items-center gap-2 bg-[#003372] text-white px-4 py-2 rounded-xl w-full justify-center">
                 <FaCartShopping /> Add to cart
               </button>
               <button className="bg-[#003372] text-white px-4 py-2 rounded-xl w-full">

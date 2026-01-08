@@ -6,9 +6,11 @@ import { FaCartShopping } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useCartWishlist } from "../context/CartWishlistContext";
 
 function Header() {
   const { user, logout, isAuthenticated } = useAuth0();
+  const { cart, wishlist } = useCartWishlist();
 
   return (
     <header className="flex justify-between items-center bg-[#edc057] px-5 py-2 text-black font-medium">
@@ -57,11 +59,19 @@ function Header() {
           <FaSearch className="text-[#7A7A7A] size-5" />
         </div>
 
-        <NavLink to="/cart">
+        <NavLink to="/cart" className="relative">
           <FaCartShopping className="text-[#003372] size-6" />
+          <span className="absolute -top-2 -right-3 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+            {cart.length}
+          </span>
         </NavLink>
 
-        <FaRegHeart className="text-[#003372] size-6" />
+        <NavLink to="/dashboard/wishlist" className="relative">
+          <FaRegHeart className="text-[#003372] size-6" />
+          <span className="absolute -top-2 -right-3 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+            {wishlist.length}
+          </span>
+        </NavLink>
 
         {/* Profile Image */}
         <NavLink

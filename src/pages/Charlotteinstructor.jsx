@@ -3,6 +3,7 @@ import Charlotte from "../assets/Homeimage/Charlotte.png";
 import { NavLink } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaLinkedin ,FaChevronCircleLeft ,FaChevronCircleRight } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
+import { useCartWishlist } from "../context/CartWishlistContext";
 import Web from "../assets/Homeimage/Web.png"
 import Brand from "../assets/Homeimage/Brand.png"
 import { MdCall } from "react-icons/md";
@@ -13,6 +14,8 @@ import Nancysmith from "../assets/Homeimage/Nancysmith.png";
 import Stars from "../assets/Homeimage/Stars.png";
 
 function Charlotteinstructor() {
+  const { addToCart, addToWishlist, wishlist, removeFromWishlist } = useCartWishlist();
+  const isWish = (id) => wishlist.some((i) => i.id === id);
   return (
     <>
       {/* PROFILE */}
@@ -128,10 +131,12 @@ function Charlotteinstructor() {
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <button className="bg-yellow-300 px-4 py-1 rounded-md font-semibold">
+                  <button onClick={() => addToCart({ id: course.link.replace('/',''), title: course.title, price: 10000 })} className="bg-yellow-300 px-4 py-1 rounded-md font-semibold">
                     Add to cart
                   </button>
-                  <FaHeart />
+                  <button onClick={() => (isWish(course.link.replace('/','')) ? removeFromWishlist(course.link.replace('/','')) : addToWishlist({ id: course.link.replace('/',''), title: course.title, price: 10000 }))}>
+                    <FaHeart className={`${isWish(course.link.replace('/','')) ? 'text-red-500' : 'text-gray-400'}`} />
+                  </button>
                 </div>
               <NavLink to={course.link}>
                 <button className="w-full border mt-2 py-1 rounded-md font-semibold">

@@ -6,6 +6,7 @@ import { ToastContainer, Bounce } from "react-toastify";
 import App from "./App.jsx";
 import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
+import { CartWishlistProvider } from "./context/CartWishlistContext";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -16,9 +17,12 @@ createRoot(document.getElementById("root")).render(
         redirect_uri: window.location.origin,
       }}
     >
-      <App />
+      <CartWishlistProvider>
+        <App />
 
-      {/* Toast notifications */}
+        {/* Toast notifications */}
+      </CartWishlistProvider>
+      
       <ToastContainer
         position="top-right"
         autoClose={5000}
