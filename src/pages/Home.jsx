@@ -1,12 +1,11 @@
-import React from "react";
-import { FaCartShopping } from "react-icons/fa6";
+import React, { useState } from "react";
 import Homelogo from "../assets/Homeimage/Homelogo.png";
 import Instructors from "../assets/Homeimage/Instructors.png";
 import Courses from "../assets/Homeimage/Courses.png";
 import Certifications from "../assets/Homeimage/Certifications.png";
 import Students from "../assets/Homeimage/Students.png";
 import Elearning from "../assets/Homeimage/Elearning.png";
-import { FaBook, FaHeart } from "react-icons/fa6";
+import { FaBook } from "react-icons/fa6";
 import { IoNewspaper } from "react-icons/io5";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { RiVerifiedBadgeLine } from "react-icons/ri";
@@ -39,6 +38,28 @@ import Stars from "../assets/Homeimage/Stars.png";
 import { NavLink } from "react-router-dom";
 
 function Home() {
+  const testimonials = [
+  {
+    name: "James Smith",
+    role: "Student",
+    image: Jamessmith,
+    quote: "Amazing platform! The lessons are clear, and the instructors are top-notch.",
+  },
+  {
+    name: "James White",
+    role: "Student",
+    image: Jameswhite,
+    quote: "The course exceeded my expectations. I can’t wait to take another one!",
+  },
+  {
+    name: "Nancy Smith",
+    role: "Student",
+    image: Nancysmith,
+    quote: "The courses are well-structured and easy to follow. I learned so much!",
+  },
+];
+  const [currentIndex, setCurrentIndex] = useState(0);
+    const visibleCards = 2;
   return (
     <>
       {/* home1 */}
@@ -56,7 +77,9 @@ function Home() {
           </p>
           <br />
           <button className="bg-yellow-400 text-[#013271] font-bold rounded-md h-[30px] w-[100px]">
-            Join Now
+            <NavLink to="/courses">
+                   Join Now
+            </NavLink>
           </button>
         </div>
         <img src={Homelogo} alt="Homelogo" className="w-[424px]" />
@@ -143,12 +166,7 @@ function Home() {
                 </div>
                 <h3 className="font-semibold mt-4">UI/UX Design | <br />  2.5 Months</h3>
                 <p className="text-sm text-gray-500 flex mt-2 items-center gap-2"><img src={Nancy} alt="" className="rounded-full object-cover w-8 h-8" />By Nancy White</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                  <NavLink to="/nancycourse">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -170,12 +188,7 @@ function Home() {
                   Graphic Design |<br /> 2.5 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Nancy} alt="" className="rounded-full object-cover     w-8 h-8" />By Nancy White</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                 <NavLink to="/nancygraphic">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -197,12 +210,7 @@ function Home() {
                   Data Science|<br /> 3 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Henry} alt="" className="rounded-full object-cover     w-8 h-8" />By Henry Smith</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                <NavLink to="/henrydata">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -224,12 +232,7 @@ function Home() {
                   Mern Stack Development |  <br /> 3 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Henry} alt="" className="rounded-full object-cover     w-8 h-8" />By Henry Smith</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                 <NavLink to="/henrymern">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -251,12 +254,7 @@ function Home() {
                   Web Development| 2.5 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Charlotte} alt="" className="rounded-full object-cover     w-8 h-8" />By Charlotte</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                 <NavLink to="/charweb">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -278,12 +276,7 @@ function Home() {
                  Project Management| 2.5 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Jordan} alt="" className="rounded-full object-cover     w-8 h-8" />By Jordan</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                 <NavLink to="/jordanproject">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -306,12 +299,7 @@ function Home() {
                    3 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Nancy} alt="" className="rounded-full object-cover     w-8 h-8" />By Nancy White</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                 <NavLink to="/nancydigital">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -333,12 +321,7 @@ function Home() {
                   Business Analytics |<br /> 3 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Ethan} alt="" className="rounded-full object-cover     w-8 h-8" />By Ethan </p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                 <NavLink to="/ethanbusiness">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -360,12 +343,7 @@ function Home() {
                   Brand Management | 1.5 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Charlotte} alt="" className="rounded-full object-cover     w-8 h-8" />By Charlotte</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 justify-center mt-3 py-1 px-2 gap-2 rounded-xl flex text-[#003372]">
-                  Free</button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
-                <hr />
+                <br /><hr />
                 <NavLink to="/charbrand">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
                        View Course
@@ -385,12 +363,7 @@ function Home() {
                 <h3 className="font-semibold mt-4">
                  Public Speaking & Presentation Skills | 1 Month
                 </h3>
-                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Jordan} alt="" className="rounded-full object-cover w-8 h-8" />By Jordan</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 justify-center mt-3 py-1 px-2 gap-2 rounded-xl flex text-[#003372]">
-                  Free</button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Jordan} alt="" className="rounded-full object-cover w-8 h-8" />By Jordan</p> <br />
                 <hr />
                 <NavLink to="/jordanpublic">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -412,12 +385,7 @@ function Home() {
                   3D Modeling and Animation | 3 Months
                 </h3>
                 <p className="text-sm text-gray-500 flex items-center gap-2 mt-2"><img src={Ethan} alt="" className="rounded-full object-cover     w-8 h-8" />By Ethan</p>
-                <div className="flex items-center justify-between mb-4">
-                <button className="bg-yellow-300 w-30 items-center mt-3 py-1.5 px-2 gap-2 rounded-xl flex">
-                 <FaCartShopping className="text-[#003372] size-4" /> Add to cart
-                </button>
-                <FaHeart className="text-red-500 size-5 mt-2"/>
-                </div>
+                <br />
                 <hr />
                 <NavLink to="/ethan3d">
                 <button className="border-2 border-[#003372] text-[#003372] text-medium w-40 mt-2  py-1  rounded">      
@@ -425,10 +393,6 @@ function Home() {
                 </button>
                  </NavLink>
               </div>     
-
-
-
-
   </div>
 </div>
 
@@ -503,81 +467,73 @@ function Home() {
 
 
       {/* home7 */}
-<div className="bg-[#E4E4E4] text-center py-16">
-  <h2 className="text-2xl font-semibold">Testimonials</h2>
-  <p className="max-w-[800px] mx-auto mt-4 text-gray-600">
-    “Hear from our students! Discover how our courses have empowered learners
-    to achieve their goals and unlock new opportunities. Real stories, real
-    success!”
-  </p>
-
-  <div className="flex items-center justify-center gap-8 mt-16">
-    {/* Left Arrow */}
-    <FaChevronCircleLeft className="text-3xl text-gray-500 cursor-pointer" />
-
-    {/* Card 1 */}
-    <div className="bg-white w-[260px] h-[300px] rounded-[20px] p-6 shadow relative">
-      <img
-        src={Jamessmith}
-        alt="James Smith"
-        className="w-[110px] h-[110px] object-cover rounded-full mx-auto border-4 border-gray-300 absolute bottom-60 left-18"
-      />
-      <div className="mt-16">
-        <img src={Stars} className="mx-auto w-[100px]" />
-        <h3 className="text-blue-700 font-semibold mt-2">
-          James Smith
-        </h3>
-        <p className="text-sm text-gray-500">Student</p>
-        <p className="text-sm mt-3">
-          “Amazing platform! The lessons are clear, and the instructors are
-          top-notch.”
+   <div className="bg-[#E4E4E4] text-center py-16">
+        <h2 className="text-2xl font-semibold">Testimonials</h2>
+        <p className="max-w-[800px] mx-auto mt-4 text-gray-600">
+          “Hear from our students! Discover how our courses have empowered learners
+          to achieve their goals and unlock new opportunities.”
         </p>
+
+        <div className="relative w-full flex gap-10 justify-center items-center mt-16 h-[340px]">
+          {/* Left Arrow */}
+          <FaChevronCircleLeft
+            onClick={() =>
+              setCurrentIndex(
+                (prev) =>
+                  (prev - 1 + testimonials.length) % testimonials.length
+              )
+            }
+            className="absolute left-10 text-3xl text-gray-500 cursor-pointer z-20"
+          />
+
+          {/* Cards */}
+          {testimonials.map((testimonial, index) => {
+            const isVisible =
+              index === currentIndex ||
+              index === (currentIndex + 1) % testimonials.length;
+
+            return (
+              <div
+                key={index}
+                className={`bg-white w-[260px] h-[300px] rounded-[20px] p-6 shadow
+                  transition-all duration-700
+                  ${
+                    isVisible
+                      ? "opacity-100 scale-100 relative"
+                      : "opacity-0 scale-95 absolute pointer-events-none"
+                  }
+                `}
+              >
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-[110px] h-[110px] object-cover rounded-full mx-auto
+                  border-4 border-gray-300 absolute -top-14 left-1/2 -translate-x-1/2"
+                />
+
+                <div className="mt-16 text-center">
+                  <img src={Stars} className="mx-auto w-[100px]" />
+                  <h3 className="text-blue-700 font-semibold mt-2">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  <p className="text-sm mt-3">{testimonial.quote}</p>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Right Arrow */}
+          <FaChevronCircleRight
+            onClick={() =>
+              setCurrentIndex(
+                (prev) => (prev + 1) % testimonials.length
+              )
+            }
+            className="absolute right-10 text-3xl text-gray-500 cursor-pointer z-20"
+          />
+        </div>
       </div>
-    </div>
-
-    {/* Card 2 */}
-    <div className="bg-white w-[260px] h-[300px] rounded-[20px] p-6 shadow relative">
-      <img
-        src={Jameswhite}
-        alt="James White"
-        className="w-[110px] h-[110px] object-cover rounded-full mx-auto border-4 border-gray-300 absolute bottom-60 left-18"
-      />
-      <div className="mt-16">
-        <img src={Stars} className="mx-auto w-[100px]" />
-        <h3 className="text-blue-700 font-semibold mt-2">
-          James White
-        </h3>
-        <p className="text-sm text-gray-500">Student</p>
-        <p className="text-sm mt-3">
-          “The course exceeded my expectations. I can’t wait to take another one!”
-        </p>
-      </div>
-    </div>
-
-    {/* Card 3 */}
-    <div className="bg-white w-[260px] h-[300px] rounded-[20px] p-6 shadow relative">
-      <img
-        src={Nancysmith}
-        alt="Nancy Smith"
-        className="w-[110px] h-[110px] object-cover rounded-full mx-auto border-4 border-gray-300 absolute bottom-60 left-18"
-      />
-      <div className="mt-16">
-        <img src={Stars} className="mx-auto w-[100px]" />
-        <h3 className="text-blue-700 font-semibold mt-2">
-          Nancy Smith
-        </h3>
-        <p className="text-sm text-gray-500">Student</p>
-        <p className="text-sm mt-3">
-          “The courses are well-structured and easy to follow. I learned so much!”
-        </p>
-      </div>
-    </div>
-
-    {/* Right Arrow */}
-    <FaChevronCircleRight className="text-3xl text-gray-500 cursor-pointer" />
-  </div>
-</div>
-
     </>
   );
 }

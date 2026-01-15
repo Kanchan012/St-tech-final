@@ -6,6 +6,7 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Log from "../assets/Homeimage/Log.png";
 import Logo from "../assets/Homeimage/Logo.png";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,6 +16,7 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { loginWithRedirect } = useAuth0();
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSignup = (e) => {
@@ -56,7 +58,11 @@ function Signup() {
     setShowPassword(false);
     setShowConfirm(false);
   };
-
+   const handleGoogleLogin = () => {
+    loginWithRedirect({
+      connection: "google-oauth2", // Use Auth0 Google connection
+    });
+  };
   return (
     <div className="min-h-screen flex">
       <ToastContainer />
@@ -81,9 +87,12 @@ function Signup() {
           Sign up to S.T. Tech
         </h2>
 
-        <button className="flex items-center justify-center gap-3 border rounded-md px-6 py-2 mx-auto text-lg">
-          <FaGoogle /> Continue with Google
-        </button>
+          <button
+                    onClick={handleGoogleLogin}
+                    className="flex justify-center items-center gap-3 border rounded-md py-2 w-full"
+                  >
+                    <FaGoogle /> Continue with Google
+                  </button>
 
         <p className="text-center text-gray-400 my-4">or</p>
 

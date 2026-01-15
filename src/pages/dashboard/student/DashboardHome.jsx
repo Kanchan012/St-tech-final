@@ -2,8 +2,8 @@ import React from "react";
 import { MdNotificationsNone } from "react-icons/md";
 import { LuBookOpenText } from "react-icons/lu";
 import { GiGraduateCap, GiLaurelsTrophy } from "react-icons/gi";
-import Riva from "../assets/Homeimage/Riva.png";
-import dash from "../assets/Homeimage/dash.png";
+import Riva from "../../../assets/Homeimage/Riva.png";
+import dash from "../../../assets/Homeimage/dash.png";
 
 function DashboardHome() {
   return (

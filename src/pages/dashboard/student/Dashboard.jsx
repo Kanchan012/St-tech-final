@@ -39,18 +39,18 @@ function Dashboard() {
   return (
     <div className="flex bg-gray-300 px-10 pt-10 gap-8 min-h-screen">
       <div className="bg-white p-6 rounded-2xl space-y-4 w-65">
-        <SidebarItem to="/dashboard" icon={MdWindow} label="Dashboard" end />
-        <SidebarItem to="/dashboard/profile" icon={FaUser} label="My Profile" />
-        <SidebarItem to="/dashboard/courses" icon={HiTv} label="My Courses" />
-        <SidebarItem to="/dashboard/tasks" icon={MdTask} label="Tasks" />
-        <SidebarItem to="/dashboard/resource" icon={MdVideoLibrary} label="Resources" />
-        <SidebarItem to="/dashboard/wishlist" icon={MdFavoriteBorder} label="Wishlist" />
-        <SidebarItem to="/dashboard/feedback" icon={LuNotebookPen} label="Feedback" />
-        <SidebarItem to="/dashboard/messages" icon={LuMessageSquareMore } label="Messages" />
+        <SidebarItem to="/dashboard/student" icon={MdWindow} label="Dashboard" end />
+        <SidebarItem to="/dashboard/student/profile" icon={FaUser} label="My Profile" />
+        <SidebarItem to="/dashboard/student/tasks" icon={MdTask} label="Tasks" />
+        <SidebarItem to="/dashboard/student/courses" icon={HiTv} label="My Courses" />
+        <SidebarItem to="/dashboard/student/resource" icon={MdVideoLibrary} label="Resources" />
+        <SidebarItem to="/dashboard/student/wishlist" icon={MdFavoriteBorder} label="Wishlist" />
+        <SidebarItem to="/dashboard/student/feedback" icon={LuNotebookPen} label="Feedback" />
+        <SidebarItem to="/dashboard/student/messages" icon={LuMessageSquareMore } label="Messages" />
 
         <hr />
 
-        <SidebarItem to="/dashboard/settings" icon={IoMdSettings} label="Settings" />
+        <SidebarItem to="/dashboard/student/settings" icon={IoMdSettings} label="Settings" />
         <SidebarItem
           onClick={() =>
             logout({ logoutParams: { returnTo: window.location.origin } })

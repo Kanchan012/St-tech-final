@@ -14,7 +14,6 @@ function Header() {
 
   return (
     <header className="flex justify-between items-center bg-[#edc057] px-5 py-2 text-black font-medium">
-      
       {/* Logo */}
       <div className="flex items-center gap-2 italic text-[20px]">
         <img src={Logo} alt="Logo" className="w-10" />
@@ -26,9 +25,32 @@ function Header() {
         <NavLink to="/" className="font-medium hover:border-b-3 hover:border-[#003372]">
           Home
         </NavLink>
-        <NavLink to="/dashboard" className="font-medium hover:border-b-3 hover:border-[#003372]">
-          Dashboard
-        </NavLink>
+
+        {/* Dashboard Dropdown */}
+        <div className="relative group font-medium hover:border-b-3 hover:border-[#003372]">
+          <span className="cursor-pointer">Dashboard</span>
+          <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black rounded-lg shadow-lg min-w-[150px] z-50">
+            <NavLink
+              to="/dashboard/admin"
+              className="block px-4 py-2 hover:bg-gray-200"
+            >
+              Admin
+            </NavLink>
+            <NavLink
+              to="/dashboard/instructor"
+              className="block px-4 py-2 hover:bg-gray-200"
+            >
+              Instructor
+            </NavLink>
+            <NavLink
+              to="/dashboard/student"
+              className="block px-4 py-2 hover:bg-gray-200"
+            >
+              Student
+            </NavLink>
+          </div>
+        </div>
+
         <NavLink to="/courses" className="font-medium hover:border-b-3 hover:border-[#003372]">
           Courses
         </NavLink>
@@ -48,7 +70,6 @@ function Header() {
 
       {/* Actions */}
       <div className="flex items-center gap-4">
-        
         {/* Search */}
         <div className="flex items-center bg-white rounded-full px-2 py-1 shadow-sm shadow-black">
           <input
@@ -59,6 +80,7 @@ function Header() {
           <FaSearch className="text-[#7A7A7A] size-5" />
         </div>
 
+        {/* Cart */}
         <NavLink to="/cart" className="relative">
           <FaCartShopping className="text-[#003372] size-6" />
           <span className="absolute -top-2 -right-3 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
@@ -66,71 +88,64 @@ function Header() {
           </span>
         </NavLink>
 
-        <NavLink to="/dashboard/wishlist" className="relative">
+        {/* Wishlist */}
+        <NavLink to="/dashboard/student/wishlist" className="relative">
           <FaRegHeart className="text-[#003372] size-6" />
           <span className="absolute -top-2 -right-3 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
             {wishlist.length}
           </span>
         </NavLink>
 
-        {/* Profile Image */}
-        <NavLink
-          to="/profile"
-          className="relative group border bg-orange-100 w-10 h-10 rounded-full border-red-600 flex items-center justify-center"
-        >
-          <div className="w-10 h-10">
-            {isAuthenticated && user ? (
-              <img
-                className="rounded-full w-full h-full object-cover"
-                src={user.picture}
-                alt={user.name}
-              />
-            ) : (
-              <img
-                className="rounded-full w-full h-full object-cover"
-                src="https://www.transparentpng.com/download/user/gray-user-profile-icon-png-fP8Q1P.png"
-                alt="default_user"
-              />
-            )}
+        {/* Profile */}
+        {isAuthenticated && user ? (
+          // Authenticated: profile image + dropdown
+          <div className="relative group border bg-orange-100 w-10 h-10 rounded-full border-red-600 flex items-center justify-center">
+            <img
+              className="rounded-full object-cover"
+              src={user.picture}
+              alt={user.name}
+            />
+           <div className="absolute top-8 w-28 z-50 hidden group-hover:block p-4 rounded-2xl bg-gray-400 text-center">
+              <NavLink
+                className="block hover:underline hover:text-red-600 mb-2"
+                to="/profile"
+              >
+                Profile
+              </NavLink>
+              <button
+                onClick={() =>
+                  logout({ logoutParams: { returnTo: window.location.origin } })
+                }
+                className="block hover:underline hover:text-red-600 ml-4 cursor-pointer"
+              >
+                LogOut
+              </button>
+            </div>
           </div>
-
-          {/* Dropdown */}
-          <div className="absolute right-[-50px] top-12 w-28 z-[51] hidden group-hover:block p-4 rounded-2xl bg-gray-400 text-center">
-            {isAuthenticated && user ? (
-              <>
-                <NavLink
-                  className="block hover:underline hover:text-red-600 mb-2"
-                  to="/profile"
-                >
-                  Profile
-                </NavLink>
-                <button
-                  onClick={() =>
-                    logout({ logoutParams: { returnTo: window.location.origin } })
-                  }
-                  className="block hover:underline hover:text-red-600 cursor-pointer"
-                >
-                  LogOut
-                </button>
-              </>
-            ) : (
-              <>
-                <NavLink
-                  className="block hover:underline hover:text-red-600 mb-2"
-                  to="/login"
-                >
-                  Login
-                </NavLink>
-                <NavLink
-                  className="block hover:underline hover:text-red-600"
-                  to="/register"
-                >
-                  Register
-                </NavLink>
-              </>
-            )}
+        ) : (
+          // Not authenticated: show Login and Register links
+          <div className="relative group border bg-orange-100 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer">
+            <img
+              className="rounded-full w-full h-full object-cover"
+              src="https://www.transparentpng.com/download/user/gray-user-profile-icon-png-fP8Q1P.png"
+              alt="default_user"
+            />
+           <div className="absolute top-8 w-28 z-50 hidden group-hover:block p-4 rounded-2xl bg-gray-400 text-center">
+              <NavLink
+                className="block hover:underline hover:text-red-600 mb-2"
+                to="/login"
+              >
+                Login
+              </NavLink>
+              <NavLink
+                className="block hover:underline hover:text-red-600"
+                to="/register"
+              >
+                Register
+              </NavLink>
+            </div>
           </div>
-        </NavLink>
+        )}
 
         <TbWorld className="text-white size-6" />
       </div>

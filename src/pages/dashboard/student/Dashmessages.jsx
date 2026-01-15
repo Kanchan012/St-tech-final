@@ -1,8 +1,8 @@
 import React from "react";
 import { MdNotificationsNone } from "react-icons/md";
-import Riva from "../assets/Homeimage/Riva.png";
-import Nancy from "../assets/Homeimage/Nancy.png";
-import message from "../assets/Homeimage/message.png";
+import Riva from "../../../assets/Homeimage/Riva.png";
+import Nancy from "../../../assets/Homeimage/Nancy.png";
+import message from "../../../assets/Homeimage/message.png";
 import { FaSearch } from "react-icons/fa";
 import { IoAddCircle } from "react-icons/io5";
 import { TiPin } from "react-icons/ti";

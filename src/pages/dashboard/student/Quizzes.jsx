@@ -1,5 +1,5 @@
 import React from 'react'
-import comp from "../assets/Homeimage/comp.png"
+import comp from "../../../assets/Homeimage/comp.png"
 function Quizzes() {
   return (
     <div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Uiux from "../assets/Homeimage/Uiux.png"
+import Uiux from "../../../assets/Homeimage/Uiux.png"
 function Enrolled() {
   return (
     <div>

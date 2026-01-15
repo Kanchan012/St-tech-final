@@ -1,6 +1,6 @@
 import React from 'react'
 import { MdNotificationsNone } from "react-icons/md";
-import Riva from "../assets/Homeimage/Riva.png";
+import Riva from "../../../assets/Homeimage/Riva.png";
 import { NavLink, Outlet } from "react-router-dom";
 function Dashcourses() {
   const course = ({ isActive }) =>

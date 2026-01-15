@@ -1,7 +1,7 @@
 import React from 'react'
 import { MdNotificationsNone } from "react-icons/md";
-import Riva from "../assets/Homeimage/Riva.png";
-import dash from "../assets/Homeimage/dash.png";
+import Riva from "../../../assets/Homeimage/Riva.png";
+import dash from "../../../assets/Homeimage/dash.png";
 function Dashprofile() {
   return (
    <div className="bg-white p-6 roundedt--2xl w-full space-y-15">

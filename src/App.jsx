@@ -29,22 +29,22 @@ import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import DashboardLayout from "./pages/Dashboard";
-import DashboardHome from "./pages/DashboardHome";
-import Dashprofile from "./pages/Dashprofile";
-import Dashcourses from "./pages/Dashcourses";
-import Dashtask from "./pages/Dashtask";
-import Dashwishlist from "./pages/Dashwishlist";
-import Dashfeedback from "./pages/Dashfeedback";
-import Dashmessages from "./pages/Dashmessages";
-import Dashsetting from "./pages/Dashsetting";
-import Enrolled from "./pages/Enrolled";
-import Active from "./pages/Active";
-import Completed from "./pages/Completed";
-import Assignments from "./pages/Assignments";
-import Quizzes from "./pages/Quizzes";
-import Tests from "./pages/Tests";
-import Dashresource from "./pages/Dashresource";
+import DashboardLayout from "./pages/dashboard/student/Dashboard";
+import DashboardHome from "./pages/dashboard/student/DashboardHome";
+import Dashprofile from "./pages/dashboard/student/Dashprofile";
+import Dashcourses from "./pages/dashboard/student/Dashcourses";
+import Dashtask from "./pages/dashboard/student/Dashtask";
+import Dashwishlist from "./pages/dashboard/student/Dashwishlist";
+import Dashfeedback from "./pages/dashboard/student/Dashfeedback";
+import Dashmessages from "./pages/dashboard/student/Dashmessages";
+import Dashsetting from "./pages/dashboard/student/Dashsetting";
+import Enrolled from "./pages/dashboard/student/Enrolled";
+import Active from "./pages/dashboard/student/Active";
+import Completed from "./pages/dashboard/student/Completed";
+import Assignments from "./pages/dashboard/student/Assignments";
+import Quizzes from "./pages/dashboard/student/Quizzes";
+import Tests from "./pages/dashboard/student/Tests";
+import Dashresource from "./pages/dashboard/student/Dashresource";
 import Payment from "./pages/Payment";
 import Success from "./pages/Success";
 import Failure from "./pages/Failure";
@@ -83,7 +83,7 @@ function App() {
         <Route path="/failure" element={<Failure />} />
 
         <Route
-          path="/dashboard"
+          path="/dashboard/student"
           element={
             <ProtectedRoute>
               <DashboardLayout />

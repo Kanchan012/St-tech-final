@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { toast } from "react-toastify";
-
 const CartWishlistContext = createContext(null);
-
 const initialState = {
   cart: [],
   wishlist: [],
@@ -40,7 +38,6 @@ function reducer(state, action) {
 export function CartWishlistProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // Load from localStorage on mount
   useEffect(() => {
     try {
       const raw = localStorage.getItem("cart_wishlist_v1");
@@ -50,7 +47,6 @@ export function CartWishlistProvider({ children }) {
     }
   }, []);
 
-  // Persist to localStorage when state changes
   useEffect(() => {
     try {
       localStorage.setItem("cart_wishlist_v1", JSON.stringify(state));

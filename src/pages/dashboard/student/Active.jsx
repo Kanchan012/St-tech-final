@@ -1,7 +1,7 @@
 import React from "react";
-import Activeimage from "../assets/Homeimage/Activeimage.png";
-import Nancy from "../assets/Homeimage/Nancy.png";
-import oval from "../assets/Homeimage/oval.png";
+import Activeimage from "../../../assets/Homeimage/Activeimage.png";
+import Nancy from "../../../assets/Homeimage/Nancy.png";
+import oval from "../../../assets/Homeimage/oval.png";
 import { PiYoutubeLogoDuotone } from "react-icons/pi";
 import { IoMdLock } from "react-icons/io";
 import { IoChevronDown } from "react-icons/io5";

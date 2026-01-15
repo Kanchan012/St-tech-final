@@ -4,6 +4,7 @@ import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 import { FaGoogle } from "react-icons/fa";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth0 } from "@auth0/auth0-react";
 import Log from "../assets/Homeimage/Log.png";
 import Logo from "../assets/Homeimage/Logo.png";
 
@@ -11,6 +12,8 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const { loginWithRedirect } = useAuth0();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,21 +28,27 @@ function Login() {
       return;
     }
 
-    toast.success("Login Successfully", {
+    // Here you can handle your custom login logic (mocked for now)
+    toast.success(`Logged in as ${username}`, {
       position: "top-right",
       autoClose: 3000,
       theme: "dark",
       transition: Bounce,
     });
 
-    // Clear inputs
     setUsername("");
     setPassword("");
     setShowPassword(false);
   };
 
+  const handleGoogleLogin = () => {
+    loginWithRedirect({
+      connection: "google-oauth2", // Use Auth0 Google connection
+    });
+  };
+
   return (
-    <div className="min-h-96 flex">
+    <div className="min-h-screen flex">
       <ToastContainer />
 
       {/* LEFT */}
@@ -89,11 +98,14 @@ function Login() {
             </button>
 
             <p className="text-center text-gray-400 my-3">or</p>
-
-            <button className="flex justify-center items-center gap-3 border rounded-md py-2 w-full">
-              <FaGoogle /> Continue with Google
-            </button>
           </form>
+
+          <button
+            onClick={handleGoogleLogin}
+            className="flex justify-center items-center gap-3 border rounded-md py-2 w-full"
+          >
+            <FaGoogle /> Continue with Google
+          </button>
         </div>
 
         <p className="text-center">

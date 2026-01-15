@@ -1,8 +1,8 @@
 import React from 'react'
 import { MdNotificationsNone } from "react-icons/md";
-import Riva from "../assets/Homeimage/Riva.png";
-import wish from "../assets/Homeimage/wish.png";
-import { useCartWishlist } from "../context/CartWishlistContext";
+import Riva from "../../../assets/Homeimage/Riva.png";
+import wish from "../../../assets/Homeimage/wish.png";
+import { useCartWishlist } from "../../../context/CartWishlistContext";
 
 function Dashwishlist() {
   const { wishlist, removeFromWishlist, addToCart } = useCartWishlist();
