@@ -20,10 +20,31 @@ import { TbBrandGmail } from "react-icons/tb";
 import { FaBook } from "react-icons/fa";
 import { PiStudent } from "react-icons/pi";
 import { FaRegStar } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 
 function Ethan3D() {
   const { addToCart, addToWishlist, wishlist, removeFromWishlist } = useCartWishlist();
   const isWish = (id) => wishlist.some((i) => i.id === id);
+   const handleShare = async () => {
+    const url = window.location.href;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "UI/UX Design Course",
+          text: "Check out this UI/UX Design course by Nancy White!",
+          url,
+        });
+        toast.success("Course shared successfully!");
+      } catch {
+        toast.error("Share cancelled");
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      toast.success("Course link copied to clipboard!");
+    }
+  };
   return (
     <div className="bg-[#E4E4E4] p-8">
       <div className="max-w-8xl bg-white rounded-4xl overflow-hidden">
@@ -185,16 +206,15 @@ function Ethan3D() {
                 <button onClick={() => (isWish('modeling') ? removeFromWishlist('modeling') : addToWishlist({ id: 'modeling', title: '3D Modeling and Animation', price: 10000 }))}>
                   <FaHeart className={`${isWish('modeling') ? 'text-red-500' : 'text-gray-400'} text-lg`} />
                 </button>
-                <RiShareForwardLine className="text-gray-500 text-lg" />
-              </div>
+<RiShareForwardLine
+                  className="text-gray-500 text-lg cursor-pointer hover:text-[#003372]"
+                  onClick={handleShare}
+                />              </div>
             </div>
 
-            <div className="flex gap-3 mt-4">
+            <div className="mt-4">
               <button onClick={() => addToCart({ id: 'modeling', title: '3D Modeling and Animation', price: 10000 })} className="flex items-center gap-2 bg-[#003372] text-white px-4 py-2 rounded-xl w-full justify-center">
                 <FaCartShopping /> Add to cart
-              </button>
-              <button className="bg-[#003372] text-white px-4 py-2 rounded-xl w-full">
-                Enroll Now
               </button>
             </div>
 
@@ -207,21 +227,29 @@ function Ethan3D() {
           </div>
 
           {/* REQUIREMENTS */}
-          <div className="bg-white relative left-243 -top-170 rounded-xl shadow-lg  p-4 mt-4 h-fit">
+          <div className="bg-white relative left-243 -top-170 rounded-xl shadow-lg  p-4 mt-8 h-fit">
             <h3 className="font-semibold text-lg border-b-2 p-1.5">Requirements</h3>
             <p className="text-gray-600 text-sm p-4 text-justify leading-6">
               To participate in the 3D Modeling and Animation,Participants should have a strong interest in visual design, animation, architecture, or game development. Basic computer operation skills are required, along with patience and attention to detail. Creativity and imagination play an important role in creating 3D objects and environments. Basic drawing skills and spatial understanding are helpful but not mandatory. Access to a computer with good processing power and graphics capability is recommended for smooth learning.
             </p>
           </div> 
 
-          <div className=" relative left-124 -top-82 p-4 border-t h-fit space-y-2">
+          <div className=" relative left-124 -top-70 p-4 border-t h-fit space-y-2">
             <h1 className="font-medium">Share this course with a friend</h1> 
             <div className="flex gap-3 text-[#003372]">  
-                <FaFacebook size={25} />
-                <FaInstagram size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
-                <FaLinkedin size={25}/>
-                <TbBrandGmail size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
-                </div>
+  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+    <FaFacebook size={25} />
+  </a>
+  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+    <FaInstagram size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
+  </a>
+  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin size={25}/>
+  </a>
+  <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer">
+    <TbBrandGmail size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
+  </a>
+</div>
           </div>
         </div>  
          {/* INSTRUCTOR SECTION  */}
@@ -256,7 +284,7 @@ function Ethan3D() {
     <div className="w-full md:w-1/3 text-xl">
       <h4 className="font-semibold mb-2">Other Courses from this instructor</h4>
       <ul className="text-[#003372] space-y-1">
-        <li>• Business Analytics</li>
+        <li><NavLink to="/ethanbusiness">• Business Analytics</NavLink></li>
       </ul>
     </div>
   </div>

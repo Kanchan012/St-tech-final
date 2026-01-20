@@ -19,8 +19,29 @@ import { TbBrandGmail } from "react-icons/tb";
 import { FaBook } from "react-icons/fa";
 import { PiStudent } from "react-icons/pi";
 import { FaRegStar } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 
 function JordanProject() {
+   const handleShare = async () => {
+    const url = window.location.href;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "UI/UX Design Course",
+          text: "Check out this UI/UX Design course by Nancy White!",
+          url,
+        });
+        toast.success("Course shared successfully!");
+      } catch {
+        toast.error("Share cancelled");
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      toast.success("Course link copied to clipboard!");
+    }
+  };
   return (
     <div className="bg-[#E4E4E4] p-8">
       <div className="max-w-8xl bg-white rounded-4xl overflow-hidden">
@@ -179,16 +200,16 @@ function JordanProject() {
               <p className="text-[#003372] text-2xl font-bold">Rs. 10,000</p>
               <div className="flex gap-3">
                 <FaHeart className="text-red-500 text-lg" />
-                <RiShareForwardLine className="text-gray-500 text-lg" />
+                 <RiShareForwardLine
+                  className="text-gray-500 text-lg cursor-pointer hover:text-[#003372]"
+                  onClick={handleShare}
+                />            
               </div>
             </div>
 
-            <div className="flex gap-3 mt-4">
+            <div className="mt-4">
               <button className="flex items-center gap-2 bg-[#003372] text-white px-4 py-2 rounded-xl w-full justify-center">
                 <FaCartShopping /> Add to cart
-              </button>
-              <button className="bg-[#003372] text-white px-4 py-2 rounded-xl w-full">
-                Enroll Now
               </button>
             </div>
 
@@ -201,7 +222,7 @@ function JordanProject() {
           </div>
 
           {/* REQUIREMENTS */}
-          <div className="bg-white relative left-243 -top-170 rounded-xl shadow-lg  p-4 mt-4 h-fit">
+          <div className="bg-white relative left-243 -top-170 rounded-xl shadow-lg  p-4 mt-16 h-fit">
             <h3 className="font-semibold text-lg border-b-2 p-1.5">Requirements</h3>
             <p className="text-gray-600 text-sm p-4 text-justify leading-6">
               To participate in the Project Management,Participants should have an interest in planning, organizing, and managing tasks and teams. Good communication, leadership, and time management skills are important. Basic computer knowledge and familiarity with workplace processes are helpful. The ability to work under deadlines and coordinate with team members is essential. No prior project management experience is required.
@@ -210,12 +231,20 @@ function JordanProject() {
 
           <div className=" relative left-124 -top-82 p-4 border-t h-fit space-y-2">
             <h1 className="font-medium">Share this course with a friend</h1> 
-            <div className="flex gap-3 text-[#003372]">  
-                <FaFacebook size={25} />
-                <FaInstagram size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
-                <FaLinkedin size={25}/>
-                <TbBrandGmail size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
-                </div>
+           <div className="flex gap-3 text-[#003372]">  
+  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+    <FaFacebook size={25} />
+  </a>
+  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+    <FaInstagram size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
+  </a>
+  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin size={25}/>
+  </a>
+  <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer">
+    <TbBrandGmail size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
+  </a>
+</div>
           </div>
         </div>  
          {/* INSTRUCTOR SECTION  */}
@@ -250,7 +279,7 @@ function JordanProject() {
     <div className="w-full md:w-1/3 text-xl">
       <h4 className="font-semibold mb-2">Other Courses from this instructor</h4>
       <ul className="text-[#003372] space-y-1">
-        <li>• Public Speaking & Presentation Skills</li>
+        <li><NavLink to="/jordanpublic">• Public Speaking & Presentation Skills</NavLink></li>
       </ul>
     </div>
   </div>

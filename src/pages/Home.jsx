@@ -412,9 +412,9 @@ function Home() {
       <h3 className="mt-4 font-bold text-xl">Henry Smith</h3>
       <p className="text-sm text-gray-300">Founder</p>
       <div className="flex justify-center gap-4 mt-4 text-yellow-400">
-         <FaFacebook size={25} />
-        <FaInstagram size={25}/>
-        <FaLinkedin size={25}/>
+        <a href="https://www.facebook.com"> <FaFacebook size={25}  /></a>
+        <a href="https://www.instagram.com"> <FaInstagram size={25}/></a>
+        <a href="https://www.linkedin.com"><FaLinkedin size={25}/></a>
       </div>
     </div>
 
@@ -427,9 +427,9 @@ function Home() {
       <h3 className="mt-4 font-bold text-xl">Nancy White</h3>
       <p className="text-sm text-gray-300">Manager</p>
       <div className="flex justify-center gap-4 mt-4 text-yellow-400">
-         <FaFacebook size={25} />
-        <FaInstagram size={25}/>
-        <FaLinkedin size={25}/>
+         <a href="https://www.facebook.com"> <FaFacebook size={25}  /></a>
+        <a href="https://www.instagram.com"> <FaInstagram size={25}/></a>
+        <a href="https://www.linkedin.com"><FaLinkedin size={25}/></a>
       </div>
     </div>
 
@@ -442,9 +442,9 @@ function Home() {
       <h3 className="mt-4 font-bold text-xl">Henry Smith</h3>
       <p className="text-sm text-gray-300">Marketing Head</p>
       <div className="flex justify-center gap-4 mt-4 text-yellow-400">
-        <FaFacebook size={25}/>
-        <FaInstagram  size={25}/>
-        <FaLinkedin size={25}/>
+         <a href="https://www.facebook.com"> <FaFacebook size={25}  /></a>
+        <a href="https://www.instagram.com"> <FaInstagram size={25}/></a>
+        <a href="https://www.linkedin.com"><FaLinkedin size={25}/></a>
       </div>
     </div>
 
@@ -457,9 +457,9 @@ function Home() {
       <h3 className="mt-4 font-bold text-xl">Nancy White</h3>
       <p className="text-sm text-gray-300">Designer</p>
       <div className="flex justify-center gap-4 mt-4 text-yellow-400">
-        <FaFacebook size={25} />
-        <FaInstagram size={25}/>
-        <FaLinkedin size={25}/>
+        <a href="https://www.facebook.com"> <FaFacebook size={25}  /></a>
+        <a href="https://www.instagram.com"> <FaInstagram size={25}/></a>
+        <a href="https://www.linkedin.com"><FaLinkedin size={25}/></a>
       </div>
     </div>
   </div>

@@ -180,7 +180,9 @@ function Aboutus() {
               </div>
               <p className="text-sm">{member.role}</p>
               <div className="flex justify-center gap-4 mt-4 text-yellow-400">
-                <FaFacebook size={25} /> <FaInstagram size={25}/> <FaLinkedin size={25}/>
+                 <a href="https://www.facebook.com"> <FaFacebook size={25}  /></a>
+                        <a href="https://www.instagram.com"> <FaInstagram size={25}/></a>
+                        <a href="https://www.linkedin.com"><FaLinkedin size={25}/></a>
               </div>
             </div>
           ))}

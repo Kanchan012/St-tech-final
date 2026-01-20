@@ -29,48 +29,41 @@ function Footer() {
             </p>
           </div>
 
-          {/* Footer 2 */}
-          <div>
-            <h3>About</h3>
-            <br />
-            <ul className="space-y-1">
-              <li className="list-none">Blog</li>
-              <li className="list-none">About Us</li>
-              <li className="list-none">Team</li>
-              <li className="list-none">Instructors</li>
-              <li className="list-none">Privacy Policy</li>
-              <li className="list-none">Terms & conditions</li>
-            </ul>
-          </div>
-
-          {/* Footer 3 */}
+          {/* Footer 2*/}
           <div>
             <h3>Links</h3>
             <br />
             <ul className="space-y-1">
-              <li className="list-none">Home</li>
-              <li className="list-none">Dashboard</li>
-              <li className="list-none">FAQs</li>
-              <li className="list-none">Services</li>
-              <li className="list-none">Why us?</li>
+              <li className="list-none"><NavLink to="/">Home</NavLink></li>
+              <li className="list-none"><NavLink to="/dashboard/student">Dashboard</NavLink></li>
+              <li className="list-none"><NavLink to="/courses">Courses</NavLink></li>
+              <li className="list-none"><NavLink to="/instructors">Instructors</NavLink></li>
+              <li className="list-none"><NavLink to="/about">About us</NavLink></li>
             </ul>
           </div>
+
+          {/* Footer 3 */}
+           <div>
+          <h3>Programs</h3>
+          <ul className="space-y-1 mt-3">
+            {[
+              "IT Courses",
+              "Designing Courses",
+              "Marketing Courses",
+              "Business Courses",
+              "Public Development Courses",
+              "Creative Arts Courses",
+            ].map((cat) => (
+              <li key={cat}>
+                <NavLink to={`/courses/${encodeURIComponent(cat)}`}>
+                  {cat}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
 
           {/* Footer 4 */}
-          <div>
-            <h3>Programs</h3>
-            <br />
-            <ul className="space-y-1">
-              <li className="list-none">IT Courses</li>
-              <li className="list-none">Designing Courses</li>
-              <li className="list-none">Marketing Courses</li>
-              <li className="list-none">Business Courses</li>
-              <li className="list-none">Public Development Courses</li>
-              <li className="list-none">Creative Arts Courses</li>
-            </ul>
-          </div>
-
-          {/* Footer 5 */}
           <div>
             <h3>Address</h3>
             <br />
@@ -96,15 +89,20 @@ function Footer() {
           <h2 className="text-white">FOLLOW US ON</h2>
 
           <div className="flex gap-3 p-2">
-            <FaFacebook className="text-blue-600 bg-white border-2 border-gray-300 rounded-full w-5 h-5" />
-            <FaInstagram className="text-blue-600 bg-white border-2 border-gray-300 rounded-full w-5 h-5" />
-            <FaLinkedin className="text-blue-600 bg-white border-2 border-gray-300 rounded-full w-5 h-5" />
+            <a href="https://www.facebook.com">
+              <FaFacebook className="text-blue-600 bg-white border-2 border-gray-300 rounded-full w-5 h-5" />
+            </a>
+            <a href="https://www.instagram.com">
+              <FaInstagram className="text-blue-600 bg-white border-2 border-gray-300 rounded-full w-5 h-5" />
+            </a>
+            <a href="https://www.linkedin.com">
+              <FaLinkedin className="text-blue-600 bg-white border-2 border-gray-300 rounded-full w-5 h-5" />
+            </a>
           </div>
 
           <hr className="h-[1px] bg-white border-none w-full" />
         </div>
 
-        {/* Bottom */}
         <div className="flex justify-between text-white p-3">
           <p>Refund & Return Policy</p>
           <p>&copy; 2024 S.T. Tech. All rights reserved.</p>

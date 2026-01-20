@@ -108,7 +108,7 @@ function Header() {
            <div className="absolute top-8 w-28 z-50 hidden group-hover:block p-4 rounded-2xl bg-gray-400 text-center">
               <NavLink
                 className="block hover:underline hover:text-red-600 mb-2"
-                to="/profile"
+                to="/userprofile"
               >
                 Profile
               </NavLink>

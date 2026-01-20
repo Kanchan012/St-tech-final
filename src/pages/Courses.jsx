@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaHeart, FaCartShopping } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { NavLink ,useParams,useNavigate } from "react-router-dom";
 import { useCartWishlist } from "../context/CartWishlistContext";
 import Uiux from "../assets/Homeimage/Uiux.png";
 import Nancy from "../assets/Homeimage/Nancy.png";
@@ -21,7 +21,9 @@ import Modeling from "../assets/Homeimage/Modeling.png";
 
 function Courses() {
   const { addToCart, addToWishlist, wishlist, removeFromWishlist } = useCartWishlist();
-  const [selectedCategory, setSelectedCategory] = useState("All Courses"); // default: show all
+   const { category } = useParams();
+  const navigate = useNavigate();
+ const selectedCategory = category ? decodeURIComponent(category) : "All Courses";
 
   const courses = [
     { id: "uiux", title: "UI/UX Design", price: 10000, img: Uiux, category: "IT Courses", teacherImg: Nancy, teacherName: "Nancy White", duration: "2.5 Months", link: "/nancycourse" },
@@ -64,11 +66,14 @@ function Courses() {
             ].map((cat) => (
               <li key={cat} className="flex gap-1 text-sm text-gray-800 mb-2">
                 <input
-                  type="radio"
-                  name="category"
-                  checked={selectedCategory === cat}
-                  onChange={() => setSelectedCategory(cat)}
-                />
+                type="radio"
+                checked={selectedCategory === cat}
+                onChange={() =>
+                  cat === "All Courses"
+                    ? navigate("/courses")
+                    : navigate(`/courses/${encodeURIComponent(cat)}`)
+                }
+              />
                 {cat}
               </li>
             ))}

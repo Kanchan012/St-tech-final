@@ -20,8 +20,29 @@ import { TbBrandGmail } from "react-icons/tb";
 import { FaBook } from "react-icons/fa";
 import { PiStudent } from "react-icons/pi";
 import { FaRegStar } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 
 function EthanBusiness() {
+   const handleShare = async () => {
+    const url = window.location.href;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "UI/UX Design Course",
+          text: "Check out this UI/UX Design course by Nancy White!",
+          url,
+        });
+        toast.success("Course shared successfully!");
+      } catch {
+        toast.error("Share cancelled");
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      toast.success("Course link copied to clipboard!");
+    }
+  }; 
   const { addToCart, addToWishlist, wishlist, removeFromWishlist } = useCartWishlist();
   const isWish = (id) => wishlist.some((i) => i.id === id);
   return (
@@ -185,16 +206,15 @@ function EthanBusiness() {
                 <button onClick={() => (isWish('business') ? removeFromWishlist('business') : addToWishlist({ id: 'business', title: 'Business Analytics', price: 10000 }))}>
                   <FaHeart className={`${isWish('business') ? 'text-red-500' : 'text-gray-400'} text-lg`} />
                 </button>
-                <RiShareForwardLine className="text-gray-500 text-lg" />
-              </div>
+<RiShareForwardLine
+                  className="text-gray-500 text-lg cursor-pointer hover:text-[#003372]"
+                  onClick={handleShare}
+                />              </div>
             </div>
 
-            <div className="flex gap-3 mt-4">
+            <div className="mt-4">
               <button onClick={() => addToCart({ id: 'business', title: 'Business Analytics', price: 10000 })} className="flex items-center gap-2 bg-[#003372] text-white px-4 py-2 rounded-xl w-full justify-center">
                 <FaCartShopping /> Add to cart
-              </button>
-              <button className="bg-[#003372] text-white px-4 py-2 rounded-xl w-full">
-                Enroll Now
               </button>
             </div>
 
@@ -216,12 +236,20 @@ function EthanBusiness() {
 
           <div className=" relative left-124 -top-82 p-4 border-t h-fit space-y-2">
             <h1 className="font-medium">Share this course with a friend</h1> 
-            <div className="flex gap-3 text-[#003372]">  
-                <FaFacebook size={25} />
-                <FaInstagram size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
-                <FaLinkedin size={25}/>
-                <TbBrandGmail size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
-                </div>
+          <div className="flex gap-3 text-[#003372]">  
+  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+    <FaFacebook size={25} />
+  </a>
+  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+    <FaInstagram size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
+  </a>
+  <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+    <FaLinkedin size={25}/>
+  </a>
+  <a href="https://www.gmail.com" target="_blank" rel="noopener noreferrer">
+    <TbBrandGmail size={25} className="rounded-full bg-[#003372] text-white p-0.5"/>
+  </a>
+</div>
           </div>
         </div>  
          {/* INSTRUCTOR SECTION  */}
@@ -256,7 +284,7 @@ function EthanBusiness() {
     <div className="w-full md:w-1/3 text-xl">
       <h4 className="font-semibold mb-2">Other Courses from this instructor</h4>
       <ul className="text-[#003372] space-y-1">
-        <li>• 3D Modeling and Animation</li>
+        <li><NavLink to="/ethan3d">• 3D Modeling and Animation</NavLink></li>
       </ul>
     </div>
   </div>
