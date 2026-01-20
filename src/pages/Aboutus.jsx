@@ -7,7 +7,7 @@ import enter from "../assets/Homeimage/enter.jpg";
 import Jamessmith from "../assets/Homeimage/Jamessmith.png";
 import Jameswhite from "../assets/Homeimage/Jameswhite.png";
 import Nancysmith from "../assets/Homeimage/Nancysmith.png";
-import Background from "../assets/Homeimage/Background.png";
+import background from "../assets/Homeimage/background.png";
 import Henry6 from "../assets/Homeimage/Henry6.png";
 import Henry61 from "../assets/Homeimage/Henry61.png";
 import Nancy6 from "../assets/Homeimage/Nancy6.png";
@@ -106,7 +106,7 @@ function Aboutus() {
   {/* Card 1 */}
   <div
     className="relative w-[230px] h-18 pt-16 pb-8 text-center rounded-xl bg-no-repeat bg-cover shadow-lg"
-    style={{ backgroundImage: `url(${Background})` }}
+    style={{ backgroundImage: `url(${background})` }}
   >
     <img
       src={Jamessmith}
@@ -125,7 +125,7 @@ function Aboutus() {
   {/* Card 2 */}
   <div
     className="relative w-[230px] h-18 pt-16 pb-8 text-center rounded-xl bg-no-repeat bg-cover shadow-lg"
-    style={{ backgroundImage: `url(${Background})` }}
+    style={{ backgroundImage: `url(${background})` }}
   >
     <img
       src={Jameswhite}
@@ -143,7 +143,7 @@ function Aboutus() {
   {/* Card 3 */}
   <div
     className="relative w-[230px] h-18 pt-16 pb-8 text-center rounded-xl bg-no-repeat bg-cover shadow-lg"
-    style={{ backgroundImage: `url(${Background})` }}
+    style={{ backgroundImage: `url(${background})` }}
   >
     <img
       src={Nancysmith}
