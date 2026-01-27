@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../assets/Homeimage/Logo.png";
 import { FaSearch } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
@@ -11,7 +11,22 @@ import { useCartWishlist } from "../context/CartWishlistContext";
 function Header() {
   const { user, logout, isAuthenticated } = useAuth0();
   const { cart, wishlist } = useCartWishlist();
+  const navigate = useNavigate();
+  const [searchInput, setSearchInput] = useState("");
 
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchInput.trim()) {
+      navigate(`/courses?search=${encodeURIComponent(searchInput.trim())}`);
+      setSearchInput("");
+    }
+  };
+
+  const handleSearchClick = () => {
+    if (searchInput.trim()) {
+      navigate(`/courses?search=${encodeURIComponent(searchInput.trim())}`);
+      setSearchInput("");
+    }
+  };
   return (
     <header className="flex justify-between items-center bg-[#edc057] px-5 py-2 text-black font-medium">
       {/* Logo */}
@@ -61,14 +76,19 @@ function Header() {
           About us
         </NavLink>
 
-        <div className="flex items-center font-medium hover:border-b-3 hover:border-[#003372]">
-          <select className="ml-1 bg-transparent border-none outline-none">
-            <option>More</option>
-          </select>
+        <div className="relative group font-medium hover:border-b-3 hover:border-[#003372]">
+          <span className="cursor-pointer">More</span>
+          <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black rounded-lg shadow-lg min-w-[150px] z-50">
+            <NavLink
+              to="/contact"
+              className="block px-4 py-2 hover:bg-gray-200"
+            >
+              Contact
+            </NavLink>
+          </div>
         </div>
       </nav>
 
-      {/* Actions */}
       <div className="flex items-center gap-4">
         {/* Search */}
         <div className="flex items-center bg-white rounded-full px-2 py-1 shadow-sm shadow-black">
@@ -76,8 +96,16 @@ function Header() {
             type="text"
             placeholder="Search for anything"
             className="border-none outline-none text-sm px-4 h-8 rounded-full"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            onKeyPress={handleSearch}
           />
-          <FaSearch className="text-[#7A7A7A] size-5" />
+          <button
+            onClick={handleSearchClick}
+            className="bg-transparent border-none cursor-pointer"
+          >
+            <FaSearch className="text-[#7A7A7A] size-5" />
+          </button>
         </div>
 
         {/* Cart */}
@@ -98,7 +126,6 @@ function Header() {
 
         {/* Profile */}
         {isAuthenticated && user ? (
-          // Authenticated: profile image + dropdown
           <div className="relative group border bg-orange-100 w-10 h-10 rounded-full border-red-600 flex items-center justify-center">
             <img
               className="rounded-full object-cover"
@@ -123,7 +150,6 @@ function Header() {
             </div>
           </div>
         ) : (
-          // Not authenticated: show Login and Register links
           <div className="relative group border bg-orange-100 w-10 h-10 rounded-full flex items-center justify-center cursor-pointer">
             <img
               className="rounded-full w-full h-full object-cover"
@@ -146,7 +172,6 @@ function Header() {
             </div>
           </div>
         )}
-
         <TbWorld className="text-white size-6" />
       </div>
     </header>

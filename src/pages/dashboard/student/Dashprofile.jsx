@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdNotificationsNone } from "react-icons/md";
 import Riva from "../../../assets/Homeimage/Riva.png";
 import dash from "../../../assets/Homeimage/dash.png";
+
 function Dashprofile() {
+  const [profileData] = useState(() => {
+    const savedData = localStorage.getItem('userProfileData');
+    return savedData ? JSON.parse(savedData) : {
+      firstName: 'Riva',
+      lastName: 'Shakya',
+      username: 'Riva12',
+      location: 'Kathmandu',
+      email: 'Riva12@gmail.com',
+      contact: '9800000000',
+      skill: '-',
+      biography: '-'
+    };
+  });
   return (
    <div className="bg-white p-6 roundedt--2xl w-full space-y-15">
       <div className="flex justify-between">
@@ -33,7 +47,7 @@ function Dashprofile() {
                      <h1 className="text-2xl text-white">
                        Welcome back,
                        <br />
-                       <span className="font-bold text-2xl">Riva Shakya</span>
+                       <span className="font-bold text-2xl">{profileData.firstName} {profileData.lastName}</span>
                      </h1>
                      <br />
                      <p className="text-white w-[700px]">
@@ -53,42 +67,42 @@ function Dashprofile() {
 
                  <div className='flex gap-52'>
                   <h1>First Name</h1>
-                  <p className='font-medium'>Riva</p>
+                  <p className='font-medium'>{profileData.firstName}</p>
                  </div>
 
                  <div className='flex gap-52'>
                   <h1>Last Name</h1>
-                  <p className='font-medium'>Shakya</p>
+                  <p className='font-medium'>{profileData.lastName}</p>
                  </div>
 
                  <div className='flex gap-52'>
                   <h1>Username</h1>
-                  <p className='font-medium'>Riva12</p>
+                  <p className='font-medium'>{profileData.username}</p>
                  </div>
 
                  <div className='flex gap-54'>
                   <h1>Location</h1>
-                  <p className='font-medium'>Kathmandu</p>
+                  <p className='font-medium'>{profileData.location}</p>
                  </div>
 
                  <div className='flex gap-60'>
                   <h1>Email</h1>
-                  <p className='font-medium'>Riva12@gmail.com</p>
+                  <p className='font-medium'>{profileData.email}</p>
                  </div>
 
                  <div className='flex gap-41'>
                   <h1>Contact Number</h1>
-                  <p className='font-medium'>9800000000</p>
+                  <p className='font-medium'>{profileData.contact}</p>
                  </div>
 
                  <div className='flex gap-42'>
                   <h1>Skill/Occupation</h1>
-                  <p className='font-medium'>-</p>
+                  <p className='font-medium'>{profileData.skill || '-'}</p>
                  </div>
 
                  <div className='flex gap-53'>
                   <h1>Biography</h1>
-                  <p className='font-medium'>-</p>
+                  <p className='font-medium'>{profileData.biography || '-'}</p>
                  </div>
                  </div>
     </div>

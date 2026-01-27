@@ -160,12 +160,9 @@ function Aboutus() {
 
 </div>
 
-      {/* Bottom Team Section */}
       <div className=" py-18">
         <h2 className="text-center text-2xl font-bold py-[15px]">Our Team</h2>
         <div className="flex justify-center gap-[40px] text-center p-[30px]">
-          
-          {/* Card Component */}
           {[
             { img: Henry6, name: "Henry Smith", role: "Founder", left: true },
             { img: Nancy6, name: "Nancy White", role: "Manager" },

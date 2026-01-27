@@ -2,6 +2,9 @@ import React from "react";
 import { MdNotificationsNone } from "react-icons/md";
 import Riva from "../../../assets/Homeimage/Riva.png";
 import { PiNotepadFill } from "react-icons/pi";
+import { NavLink } from "react-router-dom";
+import NancyCourse from "../../NancyCourse";
+
 function Dashresource() {
   return (
     <div>
@@ -18,10 +21,12 @@ function Dashresource() {
           />
         </div>
       </div>
-      
+
       <hr />
-      <div className="flex items-center justify-between bg-[#E6E6E6] rounded-2xl mt-10 p-3  w-full">
-        <div className="flex items-center gap-4 ">
+
+      {/* Resource 1 */}
+      <div className="flex items-center justify-between bg-[#E6E6E6] rounded-2xl mt-10 p-3 w-full">
+        <div className="flex items-center gap-4">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
             <PiNotepadFill size={20} className="text-[#405E83]" />
           </div>
@@ -32,16 +37,21 @@ function Dashresource() {
         </div>
         <div className="flex items-center gap-3">
           <button className="bg-[#E6B94C] text-[#0F172A] px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-            View
+            <NavLink to="/nancycourse">View</NavLink>
           </button>
-          <button className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
+          <a
+            href="/example.pdf"
+            download
+            className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition"
+          >
             Download
-          </button>
+          </a>
         </div>
       </div>
 
+      {/* Resource 2 */}
       <div className="flex items-center justify-between bg-[#E6E6E6] rounded-2xl mt-4 p-3 w-full">
-        <div className="flex items-center gap-4 ">
+        <div className="flex items-center gap-4">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
             <PiNotepadFill size={20} className="text-[#405E83]" />
           </div>
@@ -52,16 +62,21 @@ function Dashresource() {
         </div>
         <div className="flex items-center gap-3">
           <button className="bg-[#E6B94C] text-[#0F172A] px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-            View
+            <NavLink to="/nancycourse">View</NavLink>
           </button>
-          <button className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
+          <a
+            href="/example.zip"
+            download
+            className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition"
+          >
             Download
-          </button>
+          </a>
         </div>
       </div>
 
+      {/* Resource 3 */}
       <div className="flex items-center justify-between bg-[#E6E6E6] rounded-2xl mt-4 p-3 w-full">
-        <div className="flex items-center gap-4 ">
+        <div className="flex items-center gap-4">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
             <PiNotepadFill size={20} className="text-[#405E83]" />
           </div>
@@ -72,16 +87,21 @@ function Dashresource() {
         </div>
         <div className="flex items-center gap-3">
           <button className="bg-[#E6B94C] text-[#0F172A] px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-            View
+            <NavLink to="/nancycourse">View</NavLink>
           </button>
-          <button className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
+          <a
+            href="/example.pdf"
+            download
+            className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition"
+          >
             Download
-          </button>
+          </a>
         </div>
       </div>
 
+      {/* Resource 4 */}
       <div className="flex items-center justify-between bg-[#E6E6E6] rounded-2xl mt-4 p-3 w-full">
-        <div className="flex items-center gap-4 ">
+        <div className="flex items-center gap-4">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
             <PiNotepadFill size={20} className="text-[#405E83]" />
           </div>
@@ -92,51 +112,15 @@ function Dashresource() {
         </div>
         <div className="flex items-center gap-3">
           <button className="bg-[#E6B94C] text-[#0F172A] px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-            View
+            <NavLink to="/nancycourse">View</NavLink>
           </button>
-          <button className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
+          <a
+            href="/example.zip"
+            download
+            className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition"
+          >
             Download
-          </button>
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between bg-[#E6E6E6] rounded-2xl mt-4 p-3 w-full">
-        <div className="flex items-center gap-4 ">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-            <PiNotepadFill size={20} className="text-[#405E83]" />
-          </div>
-          <div className="flex gap-40 items-center">
-            <h1 className="font-medium text-[#0F172A]">UI/UX Design</h1>
-            <span className="text-sm text-gray-500">example.pdf</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
-          <button className="bg-[#E6B94C] text-[#0F172A] px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-            View
-          </button>
-          <button className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-            Download
-          </button>
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between bg-[#E6E6E6] rounded-2xl mt-4 p-3 w-full">
-        <div className="flex items-center gap-4 ">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-            <PiNotepadFill size={20} className="text-[#405E83]" />
-          </div>
-          <div className="flex gap-50 items-center">
-            <h1 className="font-medium text-[#0F172A]">Example</h1>
-            <span className="text-sm text-gray-500">example.zip</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-3">
-          <button className="bg-[#E6B94C] text-[#0F172A] px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-            View
-          </button>
-          <button className="bg-[#0B3B75] text-white px-6 py-2 rounded-full text-sm font-medium hover:opacity-90 transition">
-            Download
-          </button>
+          </a>
         </div>
       </div>
     </div>

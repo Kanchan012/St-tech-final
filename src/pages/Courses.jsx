@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FaHeart, FaCartShopping } from "react-icons/fa6";
-import { NavLink ,useParams,useNavigate } from "react-router-dom";
+import { NavLink ,useParams,useNavigate, useSearchParams } from "react-router-dom";
 import { useCartWishlist } from "../context/CartWishlistContext";
 import Uiux from "../assets/Homeimage/Uiux.png";
 import Nancy from "../assets/Homeimage/Nancy.png";
@@ -21,9 +21,18 @@ import Modeling from "../assets/Homeimage/Modeling.png";
 
 function Courses() {
   const { addToCart, addToWishlist, wishlist, removeFromWishlist } = useCartWishlist();
-   const { category } = useParams();
+  const { category } = useParams();
   const navigate = useNavigate();
- const selectedCategory = category ? decodeURIComponent(category) : "All Courses";
+  const [searchParams] = useSearchParams();
+  const selectedCategory = category ? decodeURIComponent(category) : "All Courses";
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
+
+  useEffect(() => {
+    const urlSearchTerm = searchParams.get("search");
+    if (urlSearchTerm) {
+      setSearchTerm(urlSearchTerm);
+    }
+  }, [searchParams]);
 
   const courses = [
     { id: "uiux", title: "UI/UX Design", price: 10000, img: Uiux, category: "IT Courses", teacherImg: Nancy, teacherName: "Nancy White", duration: "2.5 Months", link: "/nancycourse" },
@@ -41,14 +50,33 @@ function Courses() {
 
   const filteredCourses =
     selectedCategory === "All Courses"
-      ? courses
-      : courses.filter((course) => course.category === selectedCategory || (selectedCategory === "Free Courses" && course.price === 0));
+      ? courses.filter(course => 
+          course.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+          course.teacherName.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : courses.filter((course) => 
+          (course.category === selectedCategory || (selectedCategory === "Free Courses" && course.price === 0)) &&
+          (course.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+           course.teacherName.toLowerCase().includes(searchTerm.toLowerCase()))
+        );
 
   const isWish = (id) => wishlist.some((i) => i.id === id);
 
   return (
     <div className="bg-gray-200">
       <h2 className="font-medium text-black p-6 ml-25 text-2xl">Our Courses</h2>
+      
+      {/* Search Bar */}
+      <div className="flex justify-center px-4 mb-6">
+        <input
+          type="text"
+          placeholder="Search courses or instructors..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="border-2 border-gray-300 p-2 rounded-lg w-96 outline-none focus:border-[#003372]"
+        />
+      </div>
+
       <div className="flex justify-around p-4">
         {/* Category Sidebar */}
         <div className="bg-white w-55 h-80 rounded-lg shadow-md p-5 ml-28">
