@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { FaHeart, FaCartShopping } from "react-icons/fa6";
-import { NavLink ,useParams,useNavigate, useSearchParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { useCartWishlist } from "../context/CartWishlistContext";
 import Uiux from "../assets/Homeimage/Uiux.png";
 import Nancy from "../assets/Homeimage/Nancy.png";
@@ -24,15 +24,9 @@ function Courses() {
   const { category } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const selectedCategory = category ? decodeURIComponent(category) : "All Courses";
-  const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
+  const searchTerm = searchParams.get("search") || "";
 
-  useEffect(() => {
-    const urlSearchTerm = searchParams.get("search");
-    if (urlSearchTerm) {
-      setSearchTerm(urlSearchTerm);
-    }
-  }, [searchParams]);
+  const selectedCategory = category ? decodeURIComponent(category) : "All Courses";
 
   const courses = [
     { id: "uiux", title: "UI/UX Design", price: 10000, img: Uiux, category: "IT Courses", teacherImg: Nancy, teacherName: "Nancy White", duration: "2.5 Months", link: "/nancycourse" },
@@ -65,17 +59,6 @@ function Courses() {
   return (
     <div className="bg-gray-200">
       <h2 className="font-medium text-black p-6 ml-25 text-2xl">Our Courses</h2>
-      
-      {/* Search Bar */}
-      <div className="flex justify-center px-4 mb-6">
-        <input
-          type="text"
-          placeholder="Search courses or instructors..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="border-2 border-gray-300 p-2 rounded-lg w-96 outline-none focus:border-[#003372]"
-        />
-      </div>
 
       <div className="flex justify-around p-4">
         {/* Category Sidebar */}
@@ -94,14 +77,14 @@ function Courses() {
             ].map((cat) => (
               <li key={cat} className="flex gap-1 text-sm text-gray-800 mb-2">
                 <input
-                type="radio"
-                checked={selectedCategory === cat}
-                onChange={() =>
-                  cat === "All Courses"
-                    ? navigate("/courses")
-                    : navigate(`/courses/${encodeURIComponent(cat)}`)
-                }
-              />
+                  type="radio"
+                  checked={selectedCategory === cat}
+                  onChange={() =>
+                    cat === "All Courses"
+                      ? navigate("/courses")
+                      : navigate(`/courses/${encodeURIComponent(cat)}`)
+                  }
+                />
                 {cat}
               </li>
             ))}

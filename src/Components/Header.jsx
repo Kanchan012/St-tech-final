@@ -29,19 +29,16 @@ function Header() {
   };
   return (
     <header className="flex justify-between items-center bg-[#edc057] px-5 py-2 text-black font-medium">
-      {/* Logo */}
       <div className="flex items-center gap-2 italic text-[20px]">
         <img src={Logo} alt="Logo" className="w-10" />
         <h1>S.T. Tech</h1>
       </div>
 
-      {/* Navbar */}
       <nav className="flex items-center gap-8">
         <NavLink to="/" className="font-medium hover:border-b-3 hover:border-[#003372]">
           Home
         </NavLink>
 
-        {/* Dashboard Dropdown */}
         <div className="relative group font-medium hover:border-b-3 hover:border-[#003372]">
           <span className="cursor-pointer">Dashboard</span>
           <div className="absolute top-full left-0 hidden group-hover:block bg-white text-black rounded-lg shadow-lg min-w-[150px] z-50">
@@ -90,7 +87,6 @@ function Header() {
       </nav>
 
       <div className="flex items-center gap-4">
-        {/* Search */}
         <div className="flex items-center bg-white rounded-full px-2 py-1 shadow-sm shadow-black">
           <input
             type="text"

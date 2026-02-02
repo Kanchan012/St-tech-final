@@ -25,8 +25,8 @@ function Aboutus() {
           style={{ backgroundImage: `url(${contact})` }}
         >
           <h1 className="font-medium text-white text-2xl absolute top-[30px] left-[700px] ">
-            About Us{" "}
-          </h1>{" "}
+            About Us
+          </h1>
           <br />
           <p className="text-xl text-white text-justify absolute top-[45px] left-[110px] w-[1250px] p-8 ">
             Welcome to S.T. Tech, where learning meets innovation. Our mission
